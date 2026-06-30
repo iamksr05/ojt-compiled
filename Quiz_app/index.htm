@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Modern & Fun Trivia</title>
+  <meta name="description" content="A simple, elegant multiple choice quiz application for college project testing.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" />
+          <path d="M2 17L12 22L22 17" />
+          <path d="M2 12L12 17L22 12" />
+        </svg>
+        <span class="logo-text">Simple<span class="highlight">Quiz</span></span>
+      </div>
+    </header>
+
+    <!-- Main Content Box -->
+    <main class="quiz-card">
+
+      <!-- SCREEN 1: Home Screen -->
+      <section id="screen-home" class="screen active">
+        <div class="hero-content">
+          <h1>Test Your Knowledge</h1>
+          <p>Welcome to Quiz. An interactive multiple-choice platform designed to challenge your wits across
+            various difficulty levels.</p>
+          <button id="btn-start-project" class="btn btn-primary">Start Quiz</button>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: Setup Screen -->
+      <section id="screen-setup" class="screen hidden">
+        <h2>Quiz Settings</h2>
+        <p class="subtitle">Customize your challenge parameters before starting.</p>
+
+        <div class="settings-group">
+          <label>Number of Questions</label>
+          <div id="count-group" class="pill-group">
+            <button class="pill selected" data-count="5">5 Questions</button>
+            <button class="pill" data-count="10">10 Questions</button>
+            <button class="pill" data-count="15">15 Questions</button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label>Select Difficulty</label>
+          <div id="difficulty-group" class="pill-group">
+            <button class="pill selected" data-difficulty="easy">Easy</button>
+            <button class="pill" data-difficulty="medium">Medium</button>
+            <button class="pill" data-difficulty="hard">Hard</button>
+          </div>
+        </div>
+
+        <button id="btn-begin-quiz" class="btn btn-primary full-width">Begin Quiz</button>
+      </section>
+
+      <!-- SCREEN 3: Quiz Play Screen -->
+      <section id="screen-quiz" class="screen hidden">
+        <!-- Quiz HUD -->
+        <div class="hud">
+          <div class="hud-info">
+            <span class="hud-index">Question <span id="current-question-num">1</span> of <span
+                id="total-questions-num">5</span></span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="quiz-progress-bar" class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Question -->
+        <h2 id="question-text" class="question-text">Loading question...</h2>
+
+        <!-- Options list -->
+        <div id="options-container" class="options-container">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Feedback Area -->
+        <div id="feedback-container" class="feedback-container hidden">
+          <h3 id="feedback-status" class="feedback-status">Correct!</h3>
+          <p id="feedback-text" class="feedback-text">Nice job!</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="quiz-actions">
+          <button id="btn-next" class="btn btn-primary hidden">Next Question</button>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: Results Screen -->
+      <section id="screen-results" class="screen hidden">
+        <div class="results-content">
+          <h2>Quiz Completed!</h2>
+          <p class="subtitle">Here is your performance report:</p>
+
+          <div class="score-display-card">
+            <div id="final-percentage" class="score-percentage">0%</div>
+            <p id="final-fraction" class="score-subtext">You answered 0 out of 5 questions correctly.</p>
+          </div>
+
+          <button id="btn-play-again" class="btn btn-primary">Play Again</button>
+        </div>
+      </section>
+
+    </main>
+
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+
+</html>

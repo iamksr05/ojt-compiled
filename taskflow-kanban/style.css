@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #e3e4e8;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(23, 25, 30, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bi-list-task {
+    color: #58a6ff;
+}
+
+#add-task-btn {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(33, 38, 45, 0.9);
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#add-task-btn:hover {
+    background-color: rgba(48, 54, 61, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    flex: 1;
+}
+
+.left-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.col {
+    background-color: rgba(28, 30, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                background-color 0.2s ease, 
+                border-color 0.2s ease, 
+                box-shadow 0.25s ease;
+    will-change: transform;
+}
+
+.col:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    background-color: rgba(32, 35, 42, 0.92);
+}
+
+.left-workspace .col {
+    min-height: 300px;
+}
+
+#completed-col {
+    height: 100%;
+    min-height: 624px;
+}
+
+.col.drag-over {
+    background-color: rgba(35, 38, 46, 0.95) !important;
+    border-color: #58a6ff !important;
+    transform: scale(1.01);
+}
+
+.col h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#todo-col h2 { color: #ffd166; border-bottom-color: #ffd166; }
+#current-col h2 { color: #4ea8de; border-bottom-color: #4ea8de; }
+#completed-col h2 { color: #06d6a0; border-bottom-color: #06d6a0; }
+
+.task-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 150px;
+}
+
+.task-card {
+    background-color: #21242c;
+    border: 1px solid #282b33;
+    padding: 16px;
+    border-radius: 6px;
+    cursor: grab;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+.task-card.dragging {
+    opacity: 0.4;
+    transform: scale(0.98);
+}
+
+.task-card h3 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.task-card p {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.task-card button {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border: 1px solid #30363d;
+    background-color: #21262d;
+    color: #c9d1d9;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.task-card button:hover {
+    background-color: #30363d;
+    color: #ffffff;
+}
+
+.task-card button[onclick*="deleteTask"] {
+    border-color: rgba(244, 63, 94, 0.2);
+    color: #f43f5e;
+}
+.task-card button[onclick*="deleteTask"]:hover {
+    background-color: #f43f5e;
+    color: #ffffff;
+}
+
+.task-card button[onclick*="moveTask"] {
+    border-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+.task-card button[onclick*="moveTask"]:hover {
+    background-color: #10b981;
+    color: #111216;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="tracker-container">
+        <!-- Header -->
+        <header>
+            <h1>Expense Tracker</h1>
+            <p id="entryCount">0 entries</p>
+        </header>
+
+        <!-- Balance Info -->
+        <div class="balance-section">
+            <h2>Balance: <span id="totalBalance">₹0</span></h2>
+            <div class="summary-row">
+                <div>Income: <span id="totalIncome" class="text-in">₹0</span></div>
+                <div>Expense: <span id="totalExpense" class="text-out">₹0</span></div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="flow-bar-container">
+                <span>In: <span id="inAmt">₹0</span> | Out: <span id="outAmt">₹0</span></span>
+                <div class="bar-bg">
+                    <div id="balBar" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="tracker-grid">
+            <!-- Form -->
+            <div class="form-container">
+                <h3>Add New Transaction</h3>
+                <form>
+                    <div class="field">
+                        <label for="entryNote">Description</label>
+                        <input type="text" id="entryNote" placeholder="Enter note..." required>
+                    </div>
+                    <div class="field">
+                        <label for="entryAmt">Amount</label>
+                        <input type="number" id="entryAmt" placeholder="Enter amount..." required>
+                    </div>
+                    <div class="field">
+                        <label>Type</label>
+                        <div class="radios">
+                            <label>
+                                <input type="radio" name="entryKind" id="kindIncome" value="Income" checked> Income
+                            </label>
+                            <label>
+                                <input type="radio" name="entryKind" id="kindExpense" value="Expense"> Expense
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" id="saveBtn">Save Entry</button>
+                </form>
+            </div>
+
+            <!-- List -->
+            <div class="list-container">
+                <h3>History List</h3>
+                <ul id="historyList">
+                    <!-- Loaded via JS -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

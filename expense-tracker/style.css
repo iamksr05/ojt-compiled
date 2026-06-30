@@ -1,0 +1,255 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tracker-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+#entryCount {
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+/* Balance Section */
+.balance-section {
+    margin-bottom: 20px;
+}
+
+.balance-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.summary-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.text-in {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.text-out {
+    color: #c62828;
+    font-weight: bold;
+}
+
+/* Flow Bar */
+.flow-bar-container {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+.bar-bg {
+    width: 100%;
+    height: 8px;
+    background-color: #eeeeee;
+    border-radius: 4px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+#balBar {
+    height: 100%;
+    background-color: #2e7d32;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    margin: 20px 0;
+}
+
+/* Grid Layout */
+.tracker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 600px) {
+    .tracker-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+h3 {
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 6px;
+}
+
+/* Form Styling */
+.field {
+    margin-bottom: 12px;
+}
+
+.field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.field input[type="text"],
+.field input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.radios {
+    display: flex;
+    gap: 15px;
+    padding: 4px 0;
+}
+
+.radios label {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+#saveBtn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#saveBtn:hover {
+    background-color: #111111;
+}
+
+/* History List Card Styling */
+.list-container {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+#historyList {
+    list-style: none;
+}
+
+.hcard {
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hcard-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dot-in {
+    background-color: #2e7d32;
+}
+
+.dot-out {
+    background-color: #c62828;
+}
+
+.hcard-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hcard-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.hcard-type {
+    font-size: 0.75rem;
+    color: #888888;
+}
+
+.hcard-amt {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.amt-in {
+    color: #2e7d32;
+}
+
+.amt-out {
+    color: #c62828;
+}
+
+.hcard-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.ic-edit {
+    color: #1976d2;
+}
+
+.ic-delete {
+    color: #d32f2f;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: #888888;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
