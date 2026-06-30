@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamNova Projects Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="portal-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>TeamNova</h2>
+                <p>Projects Hub</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-item active" data-path="team-agency-portfolio/index.html">Team
+                            Portfolio</a></li>
+                    <li><a href="#" class="nav-item" data-path="github-developers-portfolio/index.html">GitHub
+                            DevStats</a></li>
+                    <li><a href="#" class="nav-item" data-path="newsaggregator platform/index.html">Global News
+                            Today</a></li>
+                    <li><a href="#" class="nav-item" data-path="taskflow-kanban/index.html">Kanban Task Board</a></li>
+                    <li><a href="#" class="nav-item" data-path="expense-tracker/index.html">Expense Tracker</a></li>
+                    <li><a href="#" class="nav-item" data-path="Quiz_app/index.htm">Interactive Quiz App</a></li>
+                </ul>
+            </nav>
+
+
+        </aside>
+
+        <!-- Right Main Content Area (Iframe) -->
+        <main class="workspace">
+            <iframe id="appIframe" src="team-agency-portfolio/index.html"></iframe>
+        </main>
+    </div>
+
+    <!-- Minimal Script to Switch Iframe Sources -->
+    <script>
+        const iframe = document.getElementById('appIframe');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all navigation items
+                navItems.forEach(nav => nav.classList.remove('active'));
+
+                // Add active class to clicked navigation item
+                this.classList.add('active');
+
+                // Load clicked project in workspace iframe
+                iframe.src = this.getAttribute('data-path');
+            });
+        });
+    </script>
+</body>
+
+</html>
